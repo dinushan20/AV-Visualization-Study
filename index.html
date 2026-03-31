@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="8; url=https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visualization of Automated Vehicle Functionalities</title>
 
   <style>
     :root {
-      --bg: #0f1117;
-      --card: #171a22;
+      --bg1: #0a0f1c;
+      --bg2: #111827;
+      --card: rgba(17, 24, 39, 0.88);
+      --border: rgba(255, 255, 255, 0.10);
       --text: #f3f4f6;
-      --muted: #b8bec9;
-      --accent: #4da3ff;
-      --accent-hover: #2f89e6;
-      --border: #2a2f3a;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --muted: #cbd5e1;
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --note-bg: rgba(96, 165, 250, 0.10);
+      --note-border: rgba(96, 165, 250, 0.28);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -28,152 +30,145 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background:
-        radial-gradient(circle at top, rgba(77, 163, 255, 0.12), transparent 35%),
-        linear-gradient(180deg, #0b0d12 0%, #0f1117 100%);
+      padding: 32px;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.12), transparent 28%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
     }
 
-    .card {
+    .container {
       width: 100%;
-      max-width: 760px;
-      background: rgba(23, 26, 34, 0.92);
+      max-width: 820px;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 24px;
       box-shadow: var(--shadow);
-      padding: 42px 34px;
+      padding: 48px 40px;
+      backdrop-filter: blur(10px);
       text-align: center;
-      backdrop-filter: blur(6px);
     }
 
-    .label {
+    .tag {
       display: inline-block;
-      margin-bottom: 16px;
-      padding: 6px 12px;
-      border: 1px solid rgba(77, 163, 255, 0.25);
+      padding: 8px 14px;
       border-radius: 999px;
+      background: rgba(96, 165, 250, 0.10);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      color: #bfdbfe;
       font-size: 13px;
-      color: var(--accent);
-      background: rgba(77, 163, 255, 0.08);
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
+      margin-bottom: 22px;
     }
 
     h1 {
       margin: 0 0 18px;
-      font-size: 34px;
+      font-size: 38px;
       line-height: 1.2;
       font-weight: 700;
     }
 
-    p {
-      margin: 12px 0;
+    .subtitle {
+      margin: 0 auto 28px;
+      max-width: 650px;
+      font-size: 18px;
+      line-height: 1.7;
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.65;
     }
 
-    .highlight {
-      color: var(--text);
+    .note {
+      margin: 0 auto 30px;
+      max-width: 680px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: var(--note-bg);
+      border: 1px solid var(--note-border);
+      color: #dbeafe;
+      font-size: 16px;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .note strong {
+      color: #ffffff;
     }
 
     .button {
       display: inline-block;
-      margin-top: 24px;
-      padding: 14px 24px;
-      background: var(--accent);
-      color: #fff;
+      margin-top: 4px;
+      padding: 15px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #ffffff;
       text-decoration: none;
-      border-radius: 10px;
       font-weight: 700;
       font-size: 16px;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.28);
     }
 
     .button:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(59, 130, 246, 0.35);
     }
 
-    .small {
-      margin-top: 22px;
+    .footer {
+      margin-top: 26px;
       font-size: 14px;
-      color: #98a1af;
+      color: #94a3b8;
+      line-height: 1.6;
     }
 
-    .countdown {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #7fb9ff;
+    .url {
+      word-break: break-all;
+      color: #bfdbfe;
     }
 
     @media (max-width: 640px) {
-      .card {
-        padding: 30px 22px;
+      .container {
+        padding: 34px 22px;
       }
 
       h1 {
-        font-size: 27px;
+        font-size: 29px;
       }
 
-      p {
+      .subtitle {
         font-size: 16px;
+      }
+
+      .note {
+        font-size: 15px;
       }
     }
   </style>
-
-  <script>
-    let seconds = 8;
-
-    function updateCountdown() {
-      const el = document.getElementById("countdown");
-      if (el) {
-        el.textContent = "You will be redirected automatically in " + seconds + " second" + (seconds !== 1 ? "s" : "") + ".";
-      }
-      if (seconds > 0) {
-        seconds--;
-        setTimeout(updateCountdown, 1000);
-      }
-    }
-
-    window.onload = function () {
-      updateCountdown();
-      setTimeout(function () {
-        window.location.href = "https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/";
-      }, 8000);
-    };
-  </script>
 </head>
-
 <body>
-  <div class="card">
-    <div class="label">Study Access Page</div>
+  <main class="container">
+    <div class="tag">Study Access Page</div>
 
     <h1>Visualization of Automated Vehicle Functionalities</h1>
 
-    <p class="highlight">
-      Welcome to the study.
+    <p class="subtitle">
+      Welcome to the study. Please use the button below to open the study website.
     </p>
 
-    <p>
-      Please click the button below to open the study page.
-    </p>
+    <div class="note">
+      <strong>Please note:</strong> the study will open on a website with an unusual name.
+      This is due to the server provider and is fully intended. You are on the correct page
+      for the study.
+    </div>
 
-    <p>
-      The website name may look unusual because it is generated by the server provider.
-      This is expected, and you are on the correct page for the study.
-    </p>
-
-    <a class="button" href="https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/">
+    <a class="button" href="https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/" target="_blank" rel="noopener noreferrer">
       Open the Study
     </a>
 
-    <div id="countdown" class="countdown"></div>
-
-    <p class="small">
-      If the page does not open automatically, please use the button above.
-    </p>
-  </div>
+    <div class="footer">
+      If needed, you can also open the study directly using this link:<br>
+      <span class="url">https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/</span>
+    </div>
+  </main>
 </body>
 </html>
