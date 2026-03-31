@@ -7,168 +7,209 @@
 
   <style>
     :root {
-      --bg1: #0a0f1c;
-      --bg2: #111827;
-      --card: rgba(17, 24, 39, 0.88);
-      --border: rgba(255, 255, 255, 0.10);
-      --text: #f3f4f6;
-      --muted: #cbd5e1;
-      --accent: #60a5fa;
-      --accent-hover: #3b82f6;
-      --note-bg: rgba(96, 165, 250, 0.10);
-      --note-border: rgba(96, 165, 250, 0.28);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --bg-top: #08111f;
+      --bg-bottom: #000000;
+      --card-bg: rgba(0, 0, 0, 0.96);
+      --box-bg: rgba(255, 255, 255, 0.02);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f5f5;
+      --muted: #cfcfcf;
+      --button: #0d5bd7;
+      --button-hover: #0b4fbc;
+      --button-active: #093f96;
+      --link: #64a9ff;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.12), transparent 28%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+      background: linear-gradient(to bottom, var(--bg-top) 0%, #030814 18%, var(--bg-bottom) 100%);
+      padding: 20px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 820px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 48px 40px;
-      backdrop-filter: blur(10px);
-      text-align: center;
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(96, 165, 250, 0.10);
-      border: 1px solid rgba(96, 165, 250, 0.25);
-      color: #bfdbfe;
-      font-size: 13px;
-      letter-spacing: 0.3px;
-      margin-bottom: 22px;
-    }
-
-    h1 {
+    .title {
       margin: 0 0 18px;
-      font-size: 38px;
-      line-height: 1.2;
+      text-align: center;
       font-weight: 700;
+      font-size: clamp(2rem, 5vw, 4.25rem);
+      line-height: 1.1;
+      letter-spacing: 0.2px;
     }
 
-    .subtitle {
-      margin: 0 auto 28px;
-      max-width: 650px;
-      font-size: 18px;
+    .main-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro {
+      max-width: 1100px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.45rem);
+      line-height: 1.7;
+    }
+
+    .intro p {
+      margin: 0 0 14px;
+    }
+
+    .notice-box {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: clamp(18px, 3vw, 30px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--box-bg);
+    }
+
+    .notice-box h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.3rem, 2.2vw, 2rem);
+      line-height: 1.25;
+    }
+
+    .notice-box p {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .button-row {
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .study-button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--button);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      padding: 16px 34px;
+      min-width: 210px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(13, 91, 215, 0.35);
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .study-button:hover {
+      background: var(--button-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(13, 91, 215, 0.42);
+    }
+
+    .study-button:active {
+      background: var(--button-active);
+      transform: translateY(0);
+    }
+
+    .direct-link {
+      max-width: 1100px;
+      margin: 22px auto 0;
+      text-align: center;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
       line-height: 1.7;
       color: var(--muted);
+      word-break: break-word;
     }
 
-    .note {
-      margin: 0 auto 30px;
-      max-width: 680px;
-      padding: 18px 20px;
-      border-radius: 16px;
-      background: var(--note-bg);
-      border: 1px solid var(--note-border);
-      color: #dbeafe;
-      font-size: 16px;
-      line-height: 1.7;
-      text-align: left;
-    }
-
-    .note strong {
-      color: #ffffff;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 15px 28px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-      color: #ffffff;
+    .direct-link a {
+      color: var(--link);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.28);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(59, 130, 246, 0.35);
+    .direct-link a:hover {
+      text-decoration: underline;
     }
 
-    .footer {
-      margin-top: 26px;
-      font-size: 14px;
-      color: #94a3b8;
-      line-height: 1.6;
-    }
-
-    .url {
-      word-break: break-all;
-      color: #bfdbfe;
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        padding: 34px 22px;
+    @media (max-width: 768px) {
+      body {
+        padding: 14px;
       }
 
-      h1 {
-        font-size: 29px;
+      .main-card {
+        border-radius: 22px;
       }
 
-      .subtitle {
-        font-size: 16px;
+      .study-button {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .intro {
+        margin-bottom: 22px;
       }
 
-      .note {
-        font-size: 15px;
+      .notice-box {
+        border-radius: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <div class="tag">Study Access Page</div>
+  <div class="page">
+    <h1 class="title">Visualization of Automated Vehicle Functionalities</h1>
 
-    <h1>Visualization of Automated Vehicle Functionalities</h1>
+    <main class="main-card">
+      <section class="intro">
+        <p>Welcome to the study access page.</p>
+        <p>Please click the button below to open the study website.</p>
+      </section>
 
-    <p class="subtitle">
-      Welcome to the study. Please use the button below to open the study website.
-    </p>
+      <section class="notice-box">
+        <h2>Important Information</h2>
+        <p>
+          You are invited to take part in the experimental study
+          “Visualization of Automated Vehicle Functionalities”.
+          The unusual website name is due to the server provider and is intended.
+          Please click the button below to continue to the study.
+        </p>
+      </section>
 
-    <div class="note">
-      <strong>Please note:</strong> the study will open on a website with an unusual name.
-      This is due to the server provider and is fully intended. You are on the correct page
-      for the study.
-    </div>
+      <div class="button-row">
+        <a
+          class="study-button"
+          href="https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open study
+        </a>
+      </div>
 
-    <a class="button" href="https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/" target="_blank" rel="noopener noreferrer">
-      Open the Study
-    </a>
-
-    <div class="footer">
-      If needed, you can also open the study directly using this link:<br>
-      <span class="url">https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/</span>
-    </div>
-  </main>
+      <div class="direct-link">
+        If the button does not work, you can use this direct link:
+        <br>
+        <a
+          href="https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          https://intelligence-vegetarian-presenting-democrat.trycloudflare.com/
+        </a>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
