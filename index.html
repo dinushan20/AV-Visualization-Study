@@ -125,7 +125,7 @@
 
     .direct-link {
       max-width: 1100px;
-      margin: 22px auto ;
+      margin: 22px auto;
       margin-bottom: 4rem;
       text-align: center;
       font-size: clamp(1.5rem, 2vw, 1.5rem);
@@ -150,7 +150,7 @@
 
       .main-card {
         border-radius: 22px;
-        margin-top:60px !important;
+        margin-top: 60px !important;
       }
 
       .study-button {
@@ -170,34 +170,64 @@
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-
     <main class="main-card">
       <section class="intro">
-        <p>Welcome to the experimental study
-          “Visualization of Automated Vehicle Functionalities”.</p>
-        <p>Please click the link below to open the study website.</p>
-     <div class="direct-link">
-        <br>
-        <a
-          href="https://wife-vitamin-own-exploration.trycloudflare.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://wife-vitamin-own-exploration.trycloudflare.com/
-        </a>
-      </div>
-         <p>
+        <p>
+          Welcome to the experimental study
+          “Visualization of Automated Vehicle Functionalities”.
+        </p>
+
+        <p>
+          Please click the link below to open the study website.
+        </p>
+
+        <div class="direct-link">
+          <br>
+          <a
+            id="study-link"
+            href="https://wife-vitamin-own-exploration.trycloudflare.com/?sona_id=NULL"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://wife-vitamin-own-exploration.trycloudflare.com/?sona_id=NULL
+          </a>
+        </div>
+
+        <p>
           The unusual website name is intended.
         </p>
       </section>
-
-
-
-
-
     </main>
   </div>
+
+  <script>
+    const STUDY_BASE_URL = "https://wife-vitamin-own-exploration.trycloudflare.com/";
+
+    function getSonaIdFromPath() {
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+      // Expected GitHub Pages path:
+      // /AV-Visualization-Study/2345
+      const repoIndex = pathParts.indexOf("AV-Visualization-Study");
+
+      if (repoIndex !== -1 && pathParts.length > repoIndex + 1) {
+        return pathParts[repoIndex + 1];
+      }
+
+      return "NULL";
+    }
+
+    const sonaId = getSonaIdFromPath();
+    const targetUrl = `${STUDY_BASE_URL}?sona_id=${encodeURIComponent(sonaId)}`;
+
+    const studyLink = document.getElementById("study-link");
+    if (studyLink) {
+      studyLink.href = targetUrl;
+      studyLink.textContent = targetUrl;
+    }
+  </script>
 </body>
 </html>
