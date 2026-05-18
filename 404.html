@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualization of Automated Vehicle Functionalities</title>
+
+  <style>
+    :root {
+      --bg-top: #08111f;
+      --bg-bottom: #000000;
+      --card-bg: rgba(0, 0, 0, 0.96);
+      --box-bg: rgba(255, 255, 255, 0.02);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f5f5;
+      --muted: #cfcfcf;
+      --button: #0d5bd7;
+      --button-hover: #0b4fbc;
+      --button-active: #093f96;
+      --link: #64a9ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(to bottom, var(--bg-top) 0%, #030814 18%, var(--bg-bottom) 100%);
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .main-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      margin-top: 100px;
+    }
+
+    .intro {
+      max-width: 1100px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.45rem);
+      line-height: 1.7;
+    }
+
+    .intro p {
+      margin: 0 0 14px;
+    }
+
+    .direct-link {
+      max-width: 1100px;
+      margin: 22px auto;
+      margin-bottom: 4rem;
+      text-align: center;
+      font-size: clamp(1.5rem, 2vw, 1.5rem);
+      line-height: 2;
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .direct-link a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .direct-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 14px;
+      }
+
+      .main-card {
+        border-radius: 22px;
+        margin-top: 60px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .intro {
+        margin-bottom: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <main class="main-card">
+      <section class="intro">
+        <p>
+          Welcome to the experimental study
+          “Visualization of Automated Vehicle Functionalities”.
+        </p>
+
+        <p>
+          Please click the link below to open the study website.
+        </p>
+
+        <div class="direct-link">
+          <br>
+          <a
+            id="study-link"
+            href="https://wife-vitamin-own-exploration.trycloudflare.com/?sona_id=NULL"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://wife-vitamin-own-exploration.trycloudflare.com/?sona_id=NULL
+          </a>
+        </div>
+
+        <p>
+          The unusual website name is intended.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const STUDY_BASE_URL = "https://wife-vitamin-own-exploration.trycloudflare.com/";
+
+    function getSonaIdFromPath() {
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+      // Expected GitHub Pages path:
+      // /AV-Visualization-Study/2345
+      const repoIndex = pathParts.indexOf("AV-Visualization-Study");
+
+      if (repoIndex !== -1 && pathParts.length > repoIndex + 1) {
+        return pathParts[repoIndex + 1];
+      }
+
+      return "NULL";
+    }
+
+    const sonaId = getSonaIdFromPath();
+    const targetUrl = `${STUDY_BASE_URL}?sona_id=${encodeURIComponent(sonaId)}`;
+
+    const studyLink = document.getElementById("study-link");
+    if (studyLink) {
+      studyLink.href = targetUrl;
+      studyLink.textContent = targetUrl;
+    }
+  </script>
+</body>
+</html>
